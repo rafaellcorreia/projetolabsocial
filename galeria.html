@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galeria - Comunidade Xokó</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand">Galeria - Comunidade Xokó</h1>
+      <nav class="main-nav">
+        <a href="index.html">Início</a>
+        <a href="antes.html">Apresentação</a>
+        <a href="quem.html">Quem são</a>
+        <a href="onde.html">Onde estão</a>
+        <a href="brincadeiras.html">Cultura e artesanato</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="content">
+    <div class="gallery-container">
+      <img src="imagens xoko/xoko4.jpeg" alt="Foto 1 da comunidade" class="active">
+      <img src="imagens xoko/xoko1.jpeg" alt="Foto 2 da comunidade">
+      <img src="imagens xoko/xoko2.jpeg" alt="Foto 3 da comunidade">
+      <img src="imagens xoko/xoko3.jpeg" alt="Foto 4 da comunidade">
+      <img src="imagens xoko/xoko5.jpeg" alt="Foto 5 da comunidade">
+      <img src="imagens xoko/xoko6.jpeg" alt="Foto 6 da comunidade">
+      <img src="imagens xoko/xoko7.jpeg" alt="Foto 7 da comunidade">
+      <img src="imagens xoko/xoko11.jpeg" alt="Foto 8 da comunidade">
+      <img src="imagens xoko/xoko12.jpeg" alt="Foto 9 da comunidade">
+      <img src="imagens xoko/xoko13.jpeg" alt="Foto 10 da comunidade">
+      <img src="imagens xoko/xoko14.jpeg" alt="Foto 11 da comunidade">
+      <img src="imagens xoko/xoko15.jpeg" alt="Foto 11 da comunidade">
+      <img src="imagens xoko/xoko8.jpeg" alt="Foto 11 da comunidade">
+      </article>
+    </div>
+  </main>
+  <!-- Lightbox -->
+<div id="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+
+<style>
+  .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .gallery-container img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .gallery-container img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Estilo do Lightbox */
+  #lightbox {
+    display: none; /* escondido por padrão */
+    position: fixed;
+    z-index: 1000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+  }
+
+  #lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+
+  #lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  #lightbox .close:hover {
+    color: red;
+  }
+</style>
+
+<script>
+  // Pega elementos
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector("#lightbox .close");
+  const images = document.querySelectorAll(".gallery-container img");
+
+  // Quando clicar na imagem → abrir no lightbox
+  images.forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+    });
+  });
+
+  // Fechar ao clicar no X
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  // Fechar ao clicar fora da imagem
+  lightbox.addEventListener("click", (e) => {
+    if (e.target !== lightboxImg) {
+      lightbox.style.display = "none";
+    }
+  });
+</script>
+
+   </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 — Projeto LabSocial.</p>
+    </div>
+  </footer>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
+
